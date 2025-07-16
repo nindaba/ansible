@@ -4,13 +4,13 @@ set -e  # Exit on errors
 
 echo "🔄 [1] Updating package lists and installing SSH server..."
 apt update
-apt install -y openssh-server sudo adduser passwd
+apt install -y openssh-server sudo adduser passwd usermod
 
 echo "🔧 [2] Disabling SSH password authentication..."
 sed -i 's/^#*PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
 sed -i 's/^#*ChallengeResponseAuthentication .*/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config
 sed -i 's/^#*UsePAM .*/UsePAM no/' /etc/ssh/sshd_config
-systemctl restart ssh
+service restart ssh
 
 echo "👤 [3] Creating user 'ansadmin' with sudo privileges..."
 useradd -m -s /bin/bash ansadmin
