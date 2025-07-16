@@ -4,7 +4,7 @@ set -e  # Exit on errors
 
 echo "🔄 [1] Updating package lists and installing SSH server..."
 apt update
-apt install -y openssh-server sudo adduser passwd
+apt install -y openssh-server sudo adduser passwd vim
 
 echo "🔧 [2] Disabling SSH password authentication..."
 sed -i 's/^#*PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
