@@ -10,7 +10,7 @@ echo "🔧 [2] Disabling SSH password authentication..."
 sed -i 's/^#*PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
 sed -i 's/^#*ChallengeResponseAuthentication .*/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config
 sed -i 's/^#*UsePAM .*/UsePAM no/' /etc/ssh/sshd_config
-service restart ssh
+service ssh restart
 
 echo "👤 [3] Creating user 'ansadmin' with sudo privileges..."
 useradd -m -s /bin/bash ansadmin
