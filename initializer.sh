@@ -2,6 +2,17 @@
 
 set -e  # Exit on errors
 
+ANSIBLE_USER="ansadmin"
+
+# Check if ansible user exists in /etc/passwd
+if id "$ANSIBLE_USER" &>/dev/null; then
+  echo "User '$ANSIBLE_USER' exists. Exiting. therefore the environment is already set"
+  service ssh start
+  sleep infinity
+  exit 0
+fi
+
+
 echo "🔄 [1] (init) Updating package lists and installing SSH server..."
 apt update
 apt install -y openssh-server sudo adduser passwd vim
