@@ -28,3 +28,7 @@ echo "✅ Setup complete! You can now add your public key to /home/ansadmin/.ssh
 
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBs5Ie+KAzf4coHZlUFDe/hCc8rSwYnygKiQV6gZNvYI ansadmin@LPL-5CG5203JL8" >> /home/ansadmin/.ssh/authorized_keys
 
+# Start ssh and run
+service start ssh
+sleep infinity
+
